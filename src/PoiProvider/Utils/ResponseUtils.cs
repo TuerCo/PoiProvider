@@ -18,6 +18,11 @@ namespace TT.Infr.ExternalServices.Utils
 
             var result = new List<PoiData>();
 
+            if ((jobject["pois"] as JObject) == null)
+            {
+                return result;
+            }
+
             foreach (var element in (jobject["pois"] as JObject).Properties().Select(x => x.Name))
             {
                 var poiResponse = new PoiData();
